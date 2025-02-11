@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="max-w-xl mx-auto">
+    <header className="max-w-xl mx-auto mb-10">
       <div className="navbar bg-base-100 rounded-xl">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <p className="btn btn-ghost text-xl rounded-xl">daisyUI</p>
       </div>
     </header>
   );
