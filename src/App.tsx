@@ -14,17 +14,17 @@ function App() {
         <Header />
         <div>
           {data ? (
-            <div>
+            <div className="flex flex-wrap justify-between">
               {data.map((data) => {
                 return (
                   <Card key={data.id}>
-                    <div className="w-[70%] mx-auto">
+                    <div className="w-[70%] mx-auto h-[230px]">
                       <img src={`${data.img}`} />
                     </div>
-                    <div>{data.name}</div>
-                    <div>{data.group}</div>
-                    <div>{data.country}</div>
-                    <div>{data.birthday}</div>
+                    <div className="font-bold">{data.name}</div>
+                    <div className="font-bold">{data.group}</div>
+                    <div className="font-bold">{data.country}</div>
+                    <div className="font-bold">{data.birthday}</div>
                   </Card>
                 );
               })}
