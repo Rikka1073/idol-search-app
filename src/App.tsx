@@ -17,16 +17,22 @@ function App() {
             <div>
               {data.map((data) => {
                 return (
-                  <Card>
+                  <Card key={data.id}>
+                    <div className="w-[70%] mx-auto">
+                      <img src={`${data.img}`} />
+                    </div>
                     <div>{data.name}</div>
                     <div>{data.group}</div>
                     <div>{data.country}</div>
+                    <div>{data.birthday}</div>
                   </Card>
                 );
               })}
             </div>
           ) : (
-            <div>データがありません</div>
+            <div className="flex justify-center">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
           )}
         </div>
       </Layout>
