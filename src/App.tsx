@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Card from "./components/Card";
 import { useEffect, useState } from "react";
+import Pagination from "./components/Pagination";
 
 function App() {
   const limit = 8;
@@ -27,14 +28,6 @@ function App() {
     };
     fetchData();
   }, [page]);
-
-  const oncClickNext = () => {
-    setPage(page + 1);
-  };
-
-  const oncClickPrev = () => {
-    setPage(page - 1);
-  };
 
   return (
     <>
@@ -64,24 +57,7 @@ function App() {
             </div>
           )}
         </div>
-        <div className="flex justify-center">
-          <div className="join grid grid-cols-2">
-            <button
-              onClick={oncClickPrev}
-              className="join-item btn border-green-300 bg-white rounded-tl-xl rounded-bl-xl"
-              disabled={page === 1}
-            >
-              Previous page
-            </button>
-            <button
-              onClick={oncClickNext}
-              className="join-item btn border-green-300 bg-white rounded-tr-xl rounded-br-xl"
-              disabled={data.length < limit}
-            >
-              Next
-            </button>
-          </div>
-        </div>
+        <Pagination setPage={setPage} page={page} data={data} limit={limit} />
       </Layout>
     </>
   );
