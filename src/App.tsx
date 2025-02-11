@@ -3,6 +3,7 @@ import "./App.css";
 import { getAllData } from "./utils/supabaseFunction";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
+import Card from "./components/Card";
 
 function App() {
   const { data, error, isLoading } = useSWR("fetchData", getAllData, { revalidateIfStale: false });
@@ -16,11 +17,11 @@ function App() {
             <div>
               {data.map((data) => {
                 return (
-                  <div key={data.id}>
+                  <Card>
                     <div>{data.name}</div>
                     <div>{data.group}</div>
                     <div>{data.country}</div>
-                  </div>
+                  </Card>
                 );
               })}
             </div>
