@@ -1,35 +1,15 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getAllData } from "../utils/supabaseFunction";
 import Card from "../components/Card";
 import useSWR from "swr";
 
-type IdolData = {
-  id: number;
-  name: string;
-  group: string;
-  country: string;
-  birthday: string;
-  img: string;
-};
 const Groupe = () => {
   const { id } = useParams();
-  // const [displayData, setDisplayData] = useState<IdolData[]>([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await getAllData();
-  //     console.log(res);
-  //     const filterRes = res.filter((data) => data.group === id);
-  //     console.log(filterRes);
-  //     setDisplayData(filterRes);
-  //   };
-  //   fetchData();
-  // }, [id]);
 
   const fetcher = async () => {
     const res = await getAllData();
     const filterRes = res.filter((data) => data.group === id);
+    console.log(filterRes);
     return filterRes;
   };
 
@@ -37,11 +17,21 @@ const Groupe = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-between">
+      <h2 className="text-2xl font-bold mt-5 text-center">{id}</h2>
+      <div className="grid grid-cols-4 gap-4">
         {data &&
           data.map((data) => {
             return (
               <Card key={data.id}>
+                {data.member === true ? (
+                  <span className="bg-green-300 badge absolute right-0 -top-3">Member</span>
+                ) : data.member === false && data.now_team !== null ? (
+                  <span className="bg-green-300 badge absolute right-0 -top-3">
+                    {data.now_team}
+                  </span>
+                ) : (
+                  false
+                )}
                 <div className="w-[70%] mx-auto h-[230px]">
                   <img src={`${data.img}`} className="w-full h-full" />
                 </div>
