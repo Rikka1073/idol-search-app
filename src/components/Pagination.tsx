@@ -1,5 +1,3 @@
-import React from "react";
-
 type IdolData = {
   id: number;
   name: string;
