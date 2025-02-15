@@ -1,32 +1,21 @@
-import "./App.css";
-import PageRoute from "./router/PageRoute";
+import { useState } from "react";
 
-// const today = new Date();
-// const year = today.getFullYear();
-// const month = ("0" + (today.getMonth() + 1)).slice(-2);
-// const day = ("0" + today.getDate()).slice(-2);
-// const todayStr = `${year}-${month}-${day}`;
-// console.log(todayStr);
+import "./App.css";
+import Category from "./components/Category";
+import Layout from "./components/Layout";
+import PageRoute from "./router/PageRoute";
+import Header from "./components/Header";
 
 function App() {
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   // console.log(e.target.value);
-  //   console.log(inputValue);
-  //   setInputValue(e.target.value);
-  //   searchDate(e.target.value);
-  // };
-
-  // const searchDate = (value: string) => {
-  //   if (value === "") {
-  //     return console.log("empty");
-  //   }
-  // };
-
-  // searchDate(inputValue);
-
+  const [selectedGroup, setSelectedGroup] = useState("");
   return (
     <>
-      <PageRoute />
+      {selectedGroup}
+      <Layout>
+        <Header />
+        <Category setSelectedGroup={setSelectedGroup} />
+        <PageRoute />
+      </Layout>
     </>
   );
 }
