@@ -7,4 +7,7 @@ import env from "vite-plugin-env-compatible";
 export default defineConfig({
   plugins: [react(), tailwindcss(), env({ prefix: "VITE", mountedPath: "process.env" })],
   base: "/Idol",
+  build: {
+    outDir: "dist",
+  },
 });
