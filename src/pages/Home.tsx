@@ -3,15 +3,13 @@ import Pagination from "../components/Pagination";
 import Layout from "../components/Layout";
 import Category from "../components/Category";
 import Card from "../components/Card";
-import { getAllData } from "../utils/supabaseFunction";
+import { getIdolData } from "../utils/supabaseFunction";
 
 const Home = () => {
   const limit = 8;
   const today = "07/21";
   const [page, setPage] = useState(1);
   const [data, setData] = useState<IdolData[]>([]);
-  const [selectedGroup, setSelectedGroup] = useState("");
-  const [inputValue, setInputValue] = useState("");
 
   type IdolData = {
     id: number;
@@ -24,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getAllData(page, limit);
+      const res = await getIdolData(page, limit);
       console.log(res);
       setData(res);
     };
@@ -32,9 +30,7 @@ const Home = () => {
   }, [page]);
 
   return (
-    <Layout>
-      {/* <Header inputValue={inputValue} /> */}
-      <Category setSelectedGroup={setSelectedGroup} />
+    <>
       <div className="mb-10">
         {data && (
           <div className="flex flex-wrap justify-between">
@@ -60,7 +56,7 @@ const Home = () => {
         )}
       </div>
       <Pagination setPage={setPage} page={page} data={data} limit={limit} />
-    </Layout>
+    </>
   );
 };
 
