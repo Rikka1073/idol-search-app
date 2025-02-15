@@ -1,31 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Pagination from "../components/Pagination";
 import Card from "../components/Card";
 import { getIdolData } from "../utils/supabaseFunction";
+import useSWR from "swr";
 
 const Home = () => {
   const limit = 8;
   const today = "07/21";
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<IdolData[]>([]);
+  // const [idolData, setidolData] = useState<IdolData[]>([]);
 
-  type IdolData = {
-    id: number;
-    name: string;
-    group: string;
-    country: string;
-    birthday: string;
-    img: string;
+  // type IdolData = {
+  //   id: number;
+  //   name: string;
+  //   group: string;
+  //   country: string;
+  //   birthday: string;
+  //   img: string;
+  // };
+
+  const fetcher = async (page: number, limit: number) => {
+    const res = await getIdolData(page, limit);
+    console.log(res);
+    return res;
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getIdolData(page, limit);
-      console.log(res);
-      setData(res);
-    };
-    fetchData();
-  }, [page]);
+  const { data = [], isLoading } = useSWR(["getIdolData", page], () => fetcher(page, limit));
 
   return (
     <>
@@ -47,11 +47,16 @@ const Home = () => {
             })}
           </div>
         )}
-        {data.length === 0 && (
+        {isLoading && (
+          <div className="flex justify-center mb-10 h-96">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        )}
+        {/* {data.length === 0 && (
           <div className="flex justify-center">
             <div className="text-2xl font-bold">No data</div>
           </div>
-        )}
+        )} */}
       </div>
       <Pagination setPage={setPage} page={page} data={data} limit={limit} />
     </>
