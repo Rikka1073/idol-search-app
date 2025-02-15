@@ -11,4 +11,16 @@ export const IdolData = [
     id: 3,
     group: "ITZY",
   },
+  {
+    id: 4,
+    group: "BLACKPINK",
+  },
+  {
+    id: 5,
+    group: "BIGBANG",
+  },
+  {
+    id: 6,
+    group: "GFRIEND",
+  },
 ];
