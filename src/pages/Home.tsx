@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
-import Layout from "../components/Layout";
-import Category from "../components/Category";
 import Card from "../components/Card";
 import { getIdolData } from "../utils/supabaseFunction";
 
