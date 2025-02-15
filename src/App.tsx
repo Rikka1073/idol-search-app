@@ -6,8 +6,16 @@ import Card from "./components/Card";
 import { useEffect, useState } from "react";
 import Pagination from "./components/Pagination";
 
+// const today = new Date();
+// const year = today.getFullYear();
+// const month = ("0" + (today.getMonth() + 1)).slice(-2);
+// const day = ("0" + today.getDate()).slice(-2);
+// const todayStr = `${year}-${month}-${day}`;
+// console.log(todayStr);
+
 function App() {
   const limit = 8;
+  const today = "07/21";
   const [page, setPage] = useState(1);
   const [data, setData] = useState<IdolData[]>([]);
 
@@ -38,7 +46,7 @@ function App() {
             <div className="flex flex-wrap justify-between">
               {data.map((data) => {
                 return (
-                  <Card key={data.id}>
+                  <Card key={data.id} className={`${today === data.birthday ? "bg-red-100" : ""}`}>
                     <div className="w-[70%] mx-auto h-[230px]">
                       <img src={`${data.img}`} className="w-full h-full" />
                     </div>

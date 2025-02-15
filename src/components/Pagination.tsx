@@ -1,10 +1,19 @@
 import React from "react";
 
+type IdolData = {
+  id: number;
+  name: string;
+  group: string;
+  country: string;
+  birthday: string;
+  img: string;
+};
+
 type PaginationProps = {
   setPage: (page: number) => void;
   page: number;
   limit: number;
-  data: [];
+  data: IdolData[];
 };
 
 const Pagination = ({ setPage, page, limit, data }: PaginationProps) => {
