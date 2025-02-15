@@ -21,7 +21,6 @@ const Home = () => {
 
   const fetcher = async (page: number, limit: number) => {
     const res = await getIdolData(page, limit);
-    console.log(res);
     return res;
   };
 
@@ -52,11 +51,6 @@ const Home = () => {
             <span className="loading loading-spinner loading-lg"></span>
           </div>
         )}
-        {/* {data.length === 0 && (
-          <div className="flex justify-center">
-            <div className="text-2xl font-bold">No data</div>
-          </div>
-        )} */}
       </div>
       <Pagination setPage={setPage} page={page} data={data} limit={limit} />
     </>

@@ -7,13 +7,11 @@ import PageRoute from "./router/PageRoute";
 import Header from "./components/Header";
 
 function App() {
-  const [selectedGroup, setSelectedGroup] = useState("");
   return (
     <>
-      {selectedGroup}
       <Layout>
         <Header />
-        <Category setSelectedGroup={setSelectedGroup} />
+        <Category />
         <PageRoute />
       </Layout>
     </>
