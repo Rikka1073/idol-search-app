@@ -29,7 +29,7 @@ const Category = ({ setSelectedGroup }: CategoryProps) => {
         return (
           <div key={data.id}>
             <a
-              href={`/${data.group}`}
+              href={`/Idol/:${data.group}`}
               className="btn btn-outline btn-xs"
               onClick={() => onClickButton(data.group)}
             >

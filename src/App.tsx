@@ -1,10 +1,5 @@
 import "./App.css";
-import { getAllData } from "./utils/supabaseFunction";
-import Header from "./components/Header";
-import Layout from "./components/Layout";
-import Card from "./components/Card";
-import { useEffect, useState } from "react";
-import Pagination from "./components/Pagination";
+import PageRoute from "./router/PageRoute";
 
 // const today = new Date();
 // const year = today.getFullYear();
@@ -14,59 +9,24 @@ import Pagination from "./components/Pagination";
 // console.log(todayStr);
 
 function App() {
-  const limit = 8;
-  const today = "07/21";
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState<IdolData[]>([]);
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   // console.log(e.target.value);
+  //   console.log(inputValue);
+  //   setInputValue(e.target.value);
+  //   searchDate(e.target.value);
+  // };
 
-  type IdolData = {
-    id: number;
-    name: string;
-    group: string;
-    country: string;
-    birthday: string;
-    img: string;
-  };
+  // const searchDate = (value: string) => {
+  //   if (value === "") {
+  //     return console.log("empty");
+  //   }
+  // };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getAllData(page, limit);
-      console.log(res);
-      setData(res);
-    };
-    fetchData();
-  }, [page]);
+  // searchDate(inputValue);
 
   return (
     <>
-      <Layout>
-        <Header />
-        <div className="mb-10">
-          {data && (
-            <div className="flex flex-wrap justify-between">
-              {data.map((data) => {
-                return (
-                  <Card key={data.id} className={`${today === data.birthday ? "bg-red-100" : ""}`}>
-                    <div className="w-[70%] mx-auto h-[230px]">
-                      <img src={`${data.img}`} className="w-full h-full" />
-                    </div>
-                    <div className="font-bold">{data.name}</div>
-                    <div className="font-bold">{data.group}</div>
-                    <div className="font-bold">{data.country}</div>
-                    <div className="font-bold">{data.birthday}</div>
-                  </Card>
-                );
-              })}
-            </div>
-          )}
-          {data.length === 0 && (
-            <div className="flex justify-center">
-              <div className="text-2xl font-bold">No data</div>
-            </div>
-          )}
-        </div>
-        <Pagination setPage={setPage} page={page} data={data} limit={limit} />
-      </Layout>
+      <PageRoute />
     </>
   );
 }
