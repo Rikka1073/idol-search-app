@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "./App.css";
 import Category from "./components/Category";
 import Layout from "./components/Layout";
