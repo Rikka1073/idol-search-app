@@ -1,17 +1,4 @@
-const idolData = [
-  {
-    id: 1,
-    group: "IZ*ONE",
-  },
-  {
-    id: 2,
-    group: "TWICE",
-  },
-  {
-    id: 3,
-    group: "ITZY",
-  },
-];
+import { IdolData } from "../data/IdolData";
 
 type CategoryProps = {
   setSelectedGroup: (group: string) => void;
@@ -23,14 +10,16 @@ const Category = ({ setSelectedGroup }: CategoryProps) => {
     setSelectedGroup(group);
   };
 
+  const selectIdol = IdolData;
+
   return (
     <div className="flex space-x-2">
-      {idolData.map((data) => {
+      {selectIdol.map((data) => {
         return (
           <div key={data.id}>
             <a
               href={`/Idol/${data.group}`}
-              className="btn btn-outline btn-xs"
+              className="btn btn-outline btn-sm rounded-xl"
               onClick={() => onClickButton(data.group)}
             >
               {data.group}

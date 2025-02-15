@@ -31,14 +31,14 @@ const Pagination = ({ setPage, page, limit, data }: PaginationProps) => {
         <div className="join grid grid-cols-2">
           <button
             onClick={oncClickPrev}
-            className="join-item btn border-green-300 bg-white rounded-tl-xl rounded-bl-xl"
+            className="join-item btn  bg-white rounded-tl-xl rounded-bl-xl border-black"
             disabled={page === 1}
           >
             Previous page
           </button>
           <button
             onClick={oncClickNext}
-            className="join-item btn border-green-300 bg-white rounded-tr-xl rounded-br-xl"
+            className="join-item btn  bg-white rounded-tr-xl rounded-br-xl border-black"
             disabled={data.length < limit}
           >
             Next
