@@ -13,18 +13,28 @@ const idolData = [
   },
 ];
 
-const Category = () => {
+type CategoryProps = {
+  setSelectedGroup: (group: string) => void;
+};
+
+const Category = ({ setSelectedGroup }: CategoryProps) => {
   const onClickButton = (group: string) => {
     console.log(`${group}です`);
+    setSelectedGroup(group);
   };
+
   return (
     <div className="flex space-x-2">
       {idolData.map((data) => {
         return (
           <div key={data.id}>
-            <button className="btn btn-outline btn-xs" onClick={() => onClickButton(data.group)}>
+            <a
+              href={`/${data.group}`}
+              className="btn btn-outline btn-xs"
+              onClick={() => onClickButton(data.group)}
+            >
               {data.group}
-            </button>
+            </a>
           </div>
         );
       })}
