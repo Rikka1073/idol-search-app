@@ -23,4 +23,8 @@ export const IdolData = [
     id: 6,
     group: "GFRIEND",
   },
+  {
+    id: 7,
+    group: "テスト",
+  },
 ];
