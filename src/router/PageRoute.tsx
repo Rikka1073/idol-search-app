@@ -6,8 +6,8 @@ const PageRoute = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Idol" element={<Home />} />
-        <Route path="/Idol/:id" element={<Groupe />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<Groupe />} />
       </Routes>
     </BrowserRouter>
   );

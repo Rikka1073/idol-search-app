@@ -8,7 +8,7 @@ const Category = () => {
       {selectIdol.map((data) => {
         return (
           <div key={data.id}>
-            <a href={`/Idol/${data.group}`} className="btn btn-outline btn-sm rounded-xl">
+            <a href={`/${data.group}`} className="btn btn-outline btn-sm rounded-xl">
               {data.group}
             </a>
           </div>

@@ -1,8 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/Idol/:path*",
-      "destination": "/index.html"
-    }
-  ]
-}
+
