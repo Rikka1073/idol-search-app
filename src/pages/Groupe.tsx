@@ -9,6 +9,8 @@ const Groupe = () => {
   const fetcher = async () => {
     const res = await getAllData();
     const filterRes = res.filter((data) => data.group === id);
+    const sortRes = filterRes.sort((a, b) => Number(b.member === true) - Number(a.member === true));
+    console.log(sortRes);
     console.log(filterRes);
     return filterRes;
   };

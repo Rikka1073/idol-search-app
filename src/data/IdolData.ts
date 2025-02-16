@@ -25,6 +25,22 @@ export const IdolData = [
   },
   {
     id: 7,
-    group: "テスト",
+    group: "LE SSERAFIM",
+  },
+  {
+    id: 8,
+    group: "Kep1er",
+  },
+  {
+    id: 9,
+    group: "aespa",
+  },
+  {
+    id: 10,
+    group: "ILLIT",
+  },
+  {
+    id: 11,
+    group: "東方神起",
   },
 ];
