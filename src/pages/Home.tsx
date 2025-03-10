@@ -30,7 +30,7 @@ const Home = () => {
     <>
       <div className="mb-10">
         {data && (
-          <div className="flex flex-wrap justify-between">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             {data.map((data) => {
               return (
                 <Card key={data.id} className={`${today === data.birthday ? "bg-red-100" : ""}`}>
