@@ -4,7 +4,7 @@ const selectIdol = IdolData;
 
 const Category = () => {
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2 flex-wrap">
       {selectIdol.map((data) => {
         return (
           <div key={data.id}>
